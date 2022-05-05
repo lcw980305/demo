@@ -1,5 +1,9 @@
 <template>
   <div>
+    <div class="hello">
+      <h1>{{ state.count }}</h1>
+      <button @click="addCount">加</button>
+    </div>
     <Button type="primary" @click="addclick">+ 新增员工</Button>
     <Table border :columns="columns12" :data="tableData">
       <template slot-scope="{ row }" slot="name">
@@ -23,7 +27,42 @@
 <script>
 import Add from './views/add.vue'
 import End from './views/end'
+import { reactive, ref } from '@vue/composition-api'
 export default {
+  setup () {
+    const columns12 = [
+      {
+        title: 'Name',
+        slot: 'name'
+      },
+      {
+        title: 'Age',
+        key: 'age'
+      },
+      {
+        title: 'Gender',
+        key: 'gender'
+      },
+      {
+        title: 'Action',
+        slot: 'action',
+        width: 150,
+        align: 'center'
+      }
+    ]
+    const state = reactive({
+      count: 0
+    })
+    const addCount = () => {
+      state.count++
+    }
+    const add = ref(null)
+    // const addclick = () => {
+    //   add.value.dialogVisible = true
+    // }
+    return { state, addCount, columns12, add }
+  },
+
   name: '',
   components: { Add, End },
   data () {

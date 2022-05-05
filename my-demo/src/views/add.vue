@@ -23,6 +23,20 @@ export default {
   props: {
     data: {}
   },
+  setup (props, { emit }) {
+    // const dialogVisible = false
+    // const form = { name: '', age: '', gender: '' }
+    // const ok = () => {
+    //   this.dialogVisible = false
+    //   emit('fn', form.value)
+    //   this.cancel()
+    // }
+    // const cancel = () => {
+    //   this.dialogVisible = false
+    //   this.showTree = false
+    // }
+    // return { dialogVisible, form, ok, cancel }
+  },
   data () {
     return {
       dialogVisible: false,

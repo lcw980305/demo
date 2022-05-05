@@ -4,6 +4,8 @@ import router from './router'
 import store from './store'
 import ViewUI from 'view-design'
 import 'view-design/dist/styles/iview.css'
+import VueCompositionApi from '@vue/composition-api'
+Vue.use(VueCompositionApi)
 Vue.use(ViewUI)
 
 Vue.config.productionTip = false
